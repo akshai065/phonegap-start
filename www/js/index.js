@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+	   document.getElementById('btnConvert').addEventListener('click', this.onConvert, false);
     },
     // deviceready Event Handler
     //
@@ -45,5 +46,15 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
+onConvert: function() {
+var b = document.getElementById('value').value;
+if (b.value == 0 )
+document.getElementById('res').innerHTML = "32";
+else {
+var x = parseInt(b);
+var farenheit = 9/5*x+32;
+document.getElementById('res').innerHTML = "Temperature in farenheit = " + farenheit;
+}
+}
 };
